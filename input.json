@@ -1,0 +1,28 @@
+{
+  "videos": [
+    {
+      "videoPath": "C:/Users/requizm/Videos/2024-02-10 23-26-56.mkv",
+      "clips": [
+        {
+          "start": "00:05:07",
+          "end": "00:05:35",
+          "name": "dizel"
+        }
+      ]
+    },
+    {
+      "videoPath": "C:/Users/requizm/Videos/2024-02-11 00-32-43.mkv",
+      "clips": [
+        {
+          "start": "00:16:25",
+          "end": "00:16:45",
+          "name": "oldum"
+        }
+      ]
+    }
+  ],
+  "outputFolder": "C:/Users/requizm/Videos",
+  "videoFormat": "mp4",
+  "resolution": "1280x720",
+  "fps": 30
+}
