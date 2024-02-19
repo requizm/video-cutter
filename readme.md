@@ -1,8 +1,8 @@
-It uses ffmpeg to create clips from video. Check [input.json](input.json) for example input file.
+It uses ffmpeg to create clips from the video. Check [input.json](input.json) for example input file.
 
 ## TODO
 
-- Use same video stream for the clips that points to the same video file.
+- Use the same video stream for the clips that point to the same video file. (probably using with ffpmeg internal functions, not command line)
 
 ## Json schema
 
