@@ -69,7 +69,7 @@ fn ffmpeg(
                     .arg(video.video_path.clone())
                     .arg("-c")
                     .arg("copy")
-                    .arg(path.clone());
+                    .arg(format!("{}/{}_full.{}", output_folder, clip.name, extension));
                 if let Some(ref resolution) = resolution {
                     args = args.arg("-s").arg(resolution);
                 }
@@ -91,20 +91,16 @@ fn ffmpeg(
                 let mut command = Command::new("ffmpeg");
                 let mut args = command
                     .arg("-i")
-                    .arg(path.clone())
+                    .arg(format!("{}/{}_full.{}", output_folder, clip.name, extension))
                     .arg("-c:v")
                     .arg("libx264")
-                    .arg("-crf")
-                    .arg("23")
-                    .arg("-preset")
-                    .arg("medium")
                     .arg("-c:a")
                     .arg("aac")
                     .arg("-b:a")
                     .arg("128k")
-                    .arg("-strict")
-                    .arg("-2")
-                    .arg(format!("{}/{}_opt.{}", output_folder, clip.name, extension));
+                    .arg("-b:v")
+                    .arg("5M")
+                    .arg(format!("{}/{}.{}", output_folder, clip.name, extension));
                 if let Some(ref resolution) = resolution {
                     args = args.arg("-s").arg(resolution);
                 }
@@ -123,12 +119,8 @@ fn ffmpeg(
 
             // Remove previous output
             {
-                // let opt_output = format!("{}/{}_opt.{}", output_folder, clip.name, extension);
-                // let path = std::path::Path::new(&opt_output);
-                // if path.exists() {
-                //     let _ = std::fs::remove_file(path);
-                // }
-                let path = std::path::Path::new(&path);
+                let opt_output = format!("{}/{}_full.{}", output_folder, clip.name, extension);
+                let path = std::path::Path::new(&opt_output);
                 if path.exists() {
                     let _ = std::fs::remove_file(path);
                 }

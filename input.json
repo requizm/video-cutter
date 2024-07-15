@@ -1,27 +1,97 @@
 {
   "videos": [
     {
-      "videoPath": "C:/Users/requizm/Videos/2024-02-10 23-26-56.mkv",
+      "videoPath": "C:/Users/requizm/Videos/2024-07-12 01-03-47.mkv",
       "clips": [
         {
-          "start": "00:05:07",
-          "end": "00:05:35",
-          "name": "dizel"
-        }
-      ]
-    },
-    {
-      "videoPath": "C:/Users/requizm/Videos/2024-02-11 00-32-43.mkv",
-      "clips": [
+          "start": "00:03:20",
+          "end": "00:04:00",
+          "name": "lan_dur"
+        },
         {
-          "start": "00:16:25",
-          "end": "00:16:45",
-          "name": "oldum"
+          "start": "00:06:24",
+          "end": "00:06:40",
+          "name": "burdan_buraya"
+        },
+        {
+          "start": "00:09:02",
+          "end": "00:09:11",
+          "name": "akreb_vol1"
+        },
+        {
+          "start": "00:11:00",
+          "end": "00:11:30",
+          "name": "akreb_vol2"
+        },
+        {
+          "start": "00:13:30",
+          "end": "00:13:53",
+          "name": "ayni_anda"
+        },
+        {
+          "start": "00:15:43",
+          "end": "00:16:05",
+          "name": "uruguay_vol1"
+        },
+        {
+          "start": "00:30:40",
+          "end": "00:31:02",
+          "name": "akreb_cakic"
+        },
+        {
+          "start": "00:35:30",
+          "end": "00:35:55",
+          "name": "akreb_ego"
+        },
+        {
+          "start": "00:37:27",
+          "end": "00:39:35",
+          "name": "lider"
+        },
+        {
+          "start": "00:45:00",
+          "end": "00:45:26",
+          "name": "akreb_vol3"
+        },
+        {
+          "start": "00:52:42",
+          "end": "00:52:53",
+          "name": "akreb_vol4"
+        },
+        {
+          "start": "01:00:59",
+          "end": "01:01:23",
+          "name": "ibrahim_yk"
+        },
+        {
+          "start": "01:02:07",
+          "end": "01:04:09",
+          "name": "orosbum_oldunuz"
+        },
+        {
+          "start": "01:05:30",
+          "end": "01:06:07",
+          "name": "dusen_ozurludur"
+        },
+        {
+          "start": "01:10:40",
+          "end": "01:11:32",
+          "name": "en_zor_yer"
+        },
+        {
+          "start": "01:19:23",
+          "end": "01:19:56",
+          "name": "akreb_vol5"
+        },
+        {
+          "start": "01:21:20",
+          "end": "01:21:50",
+          "name": "dusen_ozurludur2"
         }
       ]
     }
   ],
-  "outputFolder": "C:/Users/requizm/Videos",
+  "outputPath": "C:/Users/requizm/Videos/2024-07-12",
   "videoFormat": "mp4",
   "resolution": "1280x720",
   "fps": 30
