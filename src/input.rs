@@ -2,10 +2,21 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "camelCase")]
+pub(crate) struct Speed {
+    pub speed: f32,
+    pub start: String, // HH:MM:SS
+    pub end: String,   // HH:MM:SS
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "camelCase")]
 pub(crate) struct Clip {
     pub name: String,
     pub start: String, // HH:MM:SS
     pub end: String,   // HH:MM:SS
+
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub speeds: Option<Vec<Speed>>,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -19,7 +30,7 @@ pub(crate) struct Clips {
 #[serde(rename_all = "camelCase")]
 pub(crate) struct Input {
     pub videos: Vec<Clips>,
-    pub output_folder: String,
+    pub output_path: String,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     pub resolution: Option<String>, // widthxheight
@@ -60,8 +71,10 @@ impl Input {
             std::fs::metadata(&video.video_path).expect("Video path not found");
         }
 
-        // Check if output folder exists
-        std::fs::metadata(&input.output_folder).expect("Output folder not found");
+        // Check if output folder exists and create it if it doesn't
+        if !std::path::Path::new(&input.output_path).exists() {
+            std::fs::create_dir(&input.output_path).expect("Error creating output folder");
+        }
 
         // Check if resolution is valid
         if let Some(resolution) = &input.resolution {
@@ -91,4 +104,19 @@ impl Input {
 
         return input;
     }
+}
+
+pub fn parse_time(time_str: &str) -> std::time::Duration {
+    let time: Vec<&str> = time_str.split(':').collect();
+    if time.len() != 3 {
+        panic!("Invalid time format");
+    }
+    let hours: u64 = time[0].parse().unwrap();
+    let minutes: u64 = time[1].parse().unwrap();
+    let seconds: u64 = time[2].parse().unwrap();
+    if hours > 23 || minutes > 59 || seconds > 59 {
+        panic!("Invalid time");
+    }
+
+    std::time::Duration::from_secs(hours * 3600 + minutes * 60 + seconds)
 }
